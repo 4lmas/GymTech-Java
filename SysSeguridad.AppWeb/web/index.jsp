@@ -1,17 +1,27 @@
-<%-- 
-    Document   : index
-    Created on : 16-ago-2021, 16:31:36
-    Author     : Dev3hc01
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="sysseguridad.appweb.utils.*"%>
+<% if (SessionUser.isAuth(request) == false) {
+         response.sendRedirect("Usuario?accion=login");
+    }
+%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+    <head>        
+        <jsp:include page="/Views/Shared/title.jsp" />
+        <title>Home</title>
+
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="/Views/Shared/headerBody.jsp" />  
+        <main class="container"> 
+            <div class="row">
+                <div class="col l12 s12">
+                    <h1>Bienvenidos</h1> 
+                    <span>Al sistema para aprender a como colocarle seguridad a sus aplicaciones web</span> 
+                </div>
+            </div>            
+        </main>
+        <jsp:include page="/Views/Shared/footerBody.jsp" />      
     </body>
 </html>
+
