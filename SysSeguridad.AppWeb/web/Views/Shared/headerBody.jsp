@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="sysseguridad.appweb.utils.*"%>
 <nav>
-    <div class="nav-wrapper blue">
+    <div class="nav-wrapper red">
         <a href="Home" class="brand-logo">SysSeguridad</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>       
         <ul class="right hide-on-med-and-down">  
@@ -9,6 +9,7 @@
             <li><a href="Home">Inicio</a></li>
             <li><a href="Usuario">Usuario</a></li>
             <li><a href="Rol">Rol</a></li>
+            <li><a href="Machines">Maquinaria</a></li>
             <li><a href="Usuario?accion=cambiarpass">Cambiar password</a></li>
             <li><a href="Usuario?accion=login">Cerrar sesión</a></li>
             <%}%>
@@ -21,6 +22,7 @@
     <li><a href="Home">Inicio</a></li>
     <li><a href="Usuario">Usuario</a></li>
     <li><a href="Rol">Rol</a></li>
+    <li><a href="Machines">Maquinaria</a></li>
     <li><a href="Usuario?accion=cambiarpass">Cambiar password</a></li>
     <li><a href="Usuario?accion=login">Cerrar sesión</a></li>
      <%}%>

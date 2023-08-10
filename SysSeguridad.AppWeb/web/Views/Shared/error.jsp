@@ -10,10 +10,10 @@
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
         <main class="container"> 
             <div class="row">
-                <div class="col l12 s12">
+                
                     <h4>Succedio el siguiente error en la aplicación</h4> 
-                    <span style="color: red"><%= request.getAttribute("error") %></span> 
-                </div>
+                    <span style="color: red"> <p>${ErrorMessage}</p></span> 
+                
             </div>            
         </main>
         <jsp:include page="/Views/Shared/footerBody.jsp" />      
