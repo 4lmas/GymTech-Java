@@ -18,6 +18,7 @@ public class Machine extends Usuario{
     protected String Maintenance_Date;
     protected String Next_Maintenance_Date;
     protected byte Estatus;
+    protected int Top_Aux;
     protected String NameUser = user.getNombre();
     
     /**
@@ -114,5 +115,21 @@ public class Machine extends Usuario{
     }
     public String getNameUser(){
         return NameUser;
+    }
+    
+    public void setTopAux(int Top_Aux){
+        this.Top_Aux = Top_Aux;
+    }
+    public int getTopAux(){
+        return Top_Aux;
+    }
+    
+    /**
+     *probablemente se tenga que añadir todo usuario pero queda esto de recordatorio
+     */
+    
+    public class EstatusMachine {
+        public static final byte ACTIVO = 1;
+        public static final byte INACTIVO = 2;
     }
 }
