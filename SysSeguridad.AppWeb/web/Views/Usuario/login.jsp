@@ -5,13 +5,12 @@
         <link rel="stylesheet" href="WEB-STYLE/login.css"/>
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Login</title>
-
     </head>
     <jsp:include page="/Views/Shared/headerBody.jsp" /> 
-    <h5>Login</h5>
     <body>
         <main class="container">   
             <form action="Usuario?accion=login" method="post">
+                <h5>Login</h5>
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
                 <div class="row">
                     <div class="input-field col 19 s12">                                             
@@ -32,10 +31,10 @@
                         <button type="sutmit" class="waves-effect waves-light btn red"><i class="material-icons right">send</i>Login</button>                                               
                     </div>
                 </div>
-                <% if (request.getAttribute("error") != null) { %>
+                <% if (request.getAttribute("error") != null) {%>
                 <div class="row">
                     <div class="col l12 s12">
-                        <span style="color:red"><%= request.getAttribute("error") %></span>                                              
+                        <span style="color:red"><%= request.getAttribute("error")%></span>                                              
                     </div>
                 </div>
                 <%}%>

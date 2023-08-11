@@ -8,10 +8,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrado horizontal */
-  justify-content: flex-start; /* Alineación arriba */
-  height: 75vh; /* Altura del viewport */
-  margin-top: 150px; /* Margen superior de 150px */
+  align-items: center;
+  justify-content: flex-start;
+  height: 75vh;
+  margin-top: 200px;
 }
 
 /* Estilos del form */
