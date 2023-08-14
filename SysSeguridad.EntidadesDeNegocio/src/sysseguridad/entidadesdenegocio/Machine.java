@@ -40,6 +40,14 @@ public class Machine extends Usuario{
     }
     
     /**
+     * Realize una sobre carga de constructor para poder invocar este desde los
+     * controladores
+     */
+    public Machine(){
+        
+    }
+    
+    /**
      * @param void no retorna nada, solo almacena en la variable
      * @param setters almacenas los datos en los atributos
      * @param getters obtienen los datos que se almacenaron anterior mente en los setters
