@@ -18,7 +18,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <jsp:include page="/Views/Shared/title.jsp" />
     </head>
+    
     <body class="body-position">
+        
         <jsp:include page="/Views/Shared/headerBody.jsp" />
 
         <!-- Cartas de Materialize -->
