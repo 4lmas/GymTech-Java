@@ -1,4 +1,3 @@
-package sysseguridad.entidadesdenegocio;
 public class Machine {
     private int Id_Machines;
     private int IdUsuario;
@@ -10,7 +9,6 @@ public class Machine {
     private String Next_Maintenance_Date;
     private byte Estatus;
     private int Top_Aux;
-    private Usuario usuario;
 
     public Machine(int id_Machines, int idUsuario, String machines_Name, String brand, int serial_Number,
                    String acquisition_Date, String maintenance_Date, String next_Maintenance_Date,
@@ -25,10 +23,6 @@ public class Machine {
         Next_Maintenance_Date = next_Maintenance_Date;
         Estatus = estatus;
         Top_Aux = top_Aux;
-    }
-    
-    public Machine(){
-        
     }
 
     public int getIdMachines() {
@@ -46,14 +40,6 @@ public class Machine {
     public void setIdUsuario(int idUsuario) {
         IdUsuario = idUsuario;
     }
-    
-    public Usuario getUsuario(){
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario){
-        this.usuario = usuario;
-    }
-    
 
     public String getMachinesName() {
         return Machines_Name;

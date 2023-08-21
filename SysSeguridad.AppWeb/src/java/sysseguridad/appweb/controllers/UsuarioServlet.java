@@ -51,6 +51,9 @@ public class UsuarioServlet extends HttpServlet {
         usuario.setIdRol(Integer.parseInt(Utilidad.getParameter(request, "idRol", "0")));
         // Obtener el parámetro estatus del request  y asignar ese valor a la propiedad Estatus de Usuario.
         usuario.setEstatus(Byte.parseByte(Utilidad.getParameter(request, "estatus", "0")));
+       
+        //-------------------------------------------
+        
         if (accion.equals("index")) {
             // Obtener el parámetro top_aux del request  y asignar ese valor a la propiedad Top_aux de Usuario.
             usuario.setTop_aux(Integer.parseInt(Utilidad.getParameter(request, "top_aux", "10")));
@@ -454,7 +457,7 @@ public class UsuarioServlet extends HttpServlet {
         } else {
             // Utilizar el método authorize de la clase SessionUser para validar que solo usuario con permiso
             // puedan acceder al servlet de Usuario. Todo el codigo que este dentro  expresion Lambda, se ejecutara si el usuario tiene permitido
-            // acceder a este Servlet 
+            // acceder a este Servlet  
             SessionUser.authorize(request, response, () -> {
                 // Hacer un switch para decidir a cual metodo ir segun el valor que venga en el parámetro de accion.
                 switch (accion) {

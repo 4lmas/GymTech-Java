@@ -1,4 +1,4 @@
-package sysseguridad.accesoadatos;
+ package sysseguridad.accesoadatos;
 
 import java.util.*; // Utilizar la utileria de java https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html
 import java.sql.*;

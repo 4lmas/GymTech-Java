@@ -36,6 +36,21 @@ public class Utilidad {
             result = pDefault; // en el caso que el valor del parámetro sea un valor incorrecto devolver el valor por defecto 
         }
         return result; // retornar el valor del parámetro o valor por defecto
+        
+    }
+    
+    public static int getIntParameter(HttpServletRequest request, int anotherKey, int anotherDefault) throws Exception{
+        String anotherValue = request.getParameter(Integer.toString(anotherKey));
+        
+        if (anotherValue != null && !anotherValue.trim().isEmpty()){
+            try {
+                return Integer.parseInt(anotherValue);
+            } catch ( NumberFormatException e){
+                return anotherDefault;
+            }
+        } else {
+            return anotherDefault;
+        }
     }
 
     /**

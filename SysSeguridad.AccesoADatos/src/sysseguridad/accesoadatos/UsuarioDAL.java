@@ -67,7 +67,7 @@ public class UsuarioDAL { // Clase para poder realizar consulta de Insertar, mod
             } catch (SQLException ex) {
                 throw ex;  // Enviar al siguiente metodo el error al ejecutar PreparedStatement el en el caso que suceda
             }
-            conn.close(); // Cerrar la conexion a la base de datos
+            conn.close(); // Cerrar la conexion a la base de datos  
         }
         catch (SQLException ex) {
             throw ex; // Enviar al siguiente metodo el error al obtener la conexion  de la clase ComunDB en el caso que suceda

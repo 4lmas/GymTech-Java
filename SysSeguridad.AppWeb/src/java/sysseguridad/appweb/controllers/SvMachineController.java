@@ -37,7 +37,7 @@ public class SvMachineController extends HttpServlet {
        String action = Utilidad.getParameter(request, "accion", "index");
        Machine machine = new Machine();
        if(action.equals("create") == false){
-           machine.setId(Integer.parseInt(Utilidad.getParameter(request, "Id_Machine", "0")));
+           machine.setIdMachines(Integer.parseInt(Utilidad.getParameter(request, "Id_Machine", "0")));
            machine.setTopAux(machine.getTopAux() == 0 ? Integer.MAX_VALUE : machine.getTopAux());
        }
        return machine;
@@ -81,7 +81,7 @@ public class SvMachineController extends HttpServlet {
         try {
             Machine machine = getMachine(request); // Llenar la instancia de Rol con los parámetros enviados en el request 
             ArrayList<Machine> machines= MachineDAL.buscarMachine(machine); // Buscar los roles que cumple con los datos enviados en el request
-            request.setAttribute("roles", machines); // Enviar los roles al jsp utilizando el request.setAttribute con el nombre del atributo roles
+            request.setAttribute("machines", machines); // Enviar los roles al jsp utilizando el request.setAttribute con el nombre del atributo roles
             // Enviar el Top_aux de Rol al jsp utilizando el request.setAttribute con el nombre del atributo top_aux
             request.setAttribute("Top_Aux", machine.getTopAux());
             request.getRequestDispatcher("Views/Machine/index.jsp").forward(request, response); // Direccionar al jsp index de Rol
@@ -123,10 +123,10 @@ public class SvMachineController extends HttpServlet {
         try {
             Machine machine = getMachine(request);
             Machine machine_result = MachineDAL.getById(machine);
-            if(machine_result.getId() > 0){
+            if(machine_result.getIdMachines() > 0){
                 request.setAttribute("machine", machine_result);
             } else {
-                 Utilidad.enviarError("El Id:" + machine.getId() + " no existe en la tabla de Rol", request, response);
+                 Utilidad.enviarError("El Id:" + machine.getIdMachines() + " no existe en la tabla de Rol", request, response);
             }
         } catch (Exception er) {
             Utilidad.enviarError(er.getMessage(), request, response);
