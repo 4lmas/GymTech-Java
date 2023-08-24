@@ -31,11 +31,11 @@ public class newMachineServlet extends HttpServlet {
         Machine machine = new Machine();
         machine.setMachinesName(Utilidad.getParameter(request, "Machines_Name", ""));
         machine.setBrand(Utilidad.getParameter(request, "Brand", ""));
-        machine.setSerialNumber(Integer.parseInt(Utilidad.getParameter(request, "Serial_Number", "0")));
+        machine.setSerialNumber(Utilidad.getParameter(request, "Serial_Number", "0"));
         machine.setAcquisitionDate(Utilidad.getParameter(request, "Acquisition_Date", ""));
         machine.setMaintenanceDate(Utilidad.getParameter(request, "Maintenance_Date", ""));
         machine.setNextMaintenanceDate(Utilidad.getParameter(request, "Maintenance_Date", ""));
-        machine.setEstatus(Byte.parseByte(Utilidad.getParameter(request, "Estatus", "0")));
+        machine.setStatus(Byte.parseByte(Utilidad.getParameter(request, "Status", "0")));
 
         if (action.equals("index")) {
             machine.setTopAux(Integer.parseInt(Utilidad.getParameter(request, "Top_Aux", "10")));
@@ -51,25 +51,30 @@ public class newMachineServlet extends HttpServlet {
         try {
             Machine machine = new Machine();
             machine.setTopAux(10);
-            ArrayList<Machine> machines = newMachineDAL.searchIncludeUsuario(machine);
+            ArrayList<Machine> machines = newMachineDAL.searchIncludeUser(machine);
             //en esta linea probablemente se traiga el valor de una variable que se definira posteirormente en la vista/ jsp
-            request.setAttribute("machines", machines);
+            request.setAttribute("machine", machines);
             request.setAttribute("Top_Aux", machine.getTopAux());
-            request.getRequestDispatcher("VIews/Machine/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/Views/Machine/index.jsp").forward(request, response);
         } catch (Exception ex) {
-            Utilidad.enviarError(ex.getMessage(), request, response);
+            String errorMessage = "Error en la redirección: " + ex.getMessage();
+            ex.printStackTrace(); // Imprime el stack trace en la consola del servidor
+            Utilidad.enviarError(errorMessage, request, response);
         }
     }
 
     private void doPostRequestIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Machine machine = getMachine(request);
-            ArrayList<Machine> machines = newMachineDAL.searchIncludeUsuario(machine);
-            request.setAttribute("machines", machines);
+            ArrayList<Machine> machines = newMachineDAL.searchIncludeUser(machine);
+            request.setAttribute("machine", machines);
             request.setAttribute("Top_Aux", machine.getTopAux());
-            request.getRequestDispatcher("Views/Machine/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/Views/Machine/index.jsp").forward(request, response);
         } catch (Exception ex) {
-            Utilidad.enviarError(ex.getMessage(), request, response);
+            String errorMessage = "Error en la redirección: " + ex.getMessage();
+            ex.printStackTrace(); // Imprime el stack trace en la consola del servidor
+            Utilidad.enviarError(errorMessage, request, response);
+
         }
     }
 

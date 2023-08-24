@@ -4,27 +4,27 @@ public class Machine {
     private int IdUsuario;
     private String Machines_Name;
     private String Brand;
-    private int Serial_Number;
+    private String Serial_Number;
     private String Acquisition_Date;
     private String Maintenance_Date;
     private String Next_Maintenance_Date;
-    private byte Estatus;
+    private byte Status;
     private int Top_Aux;
     private Usuario usuario;
 
-    public Machine(int id_Machines, int idUsuario, String machines_Name, String brand, int serial_Number,
+    public Machine(int id_Machines,/* int idUsuario,*/ String machines_Name, String brand, String serial_Number,
                    String acquisition_Date, String maintenance_Date, String next_Maintenance_Date,
-                   byte estatus, int top_Aux) {
-        Id_Machines = id_Machines;
-        IdUsuario = idUsuario;
-        Machines_Name = machines_Name;
-        Brand = brand;
-        Serial_Number = serial_Number;
-        Acquisition_Date = acquisition_Date;
-        Maintenance_Date = maintenance_Date;
-        Next_Maintenance_Date = next_Maintenance_Date;
-        Estatus = estatus;
-        Top_Aux = top_Aux;
+                   byte Status, int top_Aux) {
+        this.Id_Machines = id_Machines;
+       // IdUsuario = idUsuario;
+        this.Machines_Name = machines_Name;
+        this.Brand = brand;
+        this.Serial_Number = serial_Number;
+        this.Acquisition_Date = acquisition_Date;
+        this.Maintenance_Date = maintenance_Date;
+        this.Next_Maintenance_Date = next_Maintenance_Date;
+        this.Status = Status;
+        this.Top_Aux = top_Aux;
     }
     
     public Machine(){
@@ -38,7 +38,6 @@ public class Machine {
     public void setIdMachines(int id_Machines) {
         Id_Machines = id_Machines;
     }
-
     public int getIdUsuario() {
         return IdUsuario;
     }
@@ -71,11 +70,11 @@ public class Machine {
         Brand = brand;
     }
 
-    public int getSerialNumber() {
+    public String getSerialNumber() {
         return Serial_Number;
     }
 
-    public void setSerialNumber(int serial_Number) {
+    public void setSerialNumber(String serial_Number) {
         Serial_Number = serial_Number;
     }
 
@@ -103,12 +102,12 @@ public class Machine {
         Next_Maintenance_Date = next_Maintenance_Date;
     }
 
-    public byte getEstatus() {
-        return Estatus;
+    public byte getStatus() {
+        return Status;
     }
 
-    public void setEstatus(byte estatus) {
-        Estatus = estatus;
+    public void setStatus(byte Status) {
+        Status = Status;
     }
 
     public int getTopAux() {

@@ -9,9 +9,9 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
-    ArrayList<Machine> machines = (ArrayList<Machine>) request.getAttribute("usuarios");
+    ArrayList<Machine> machines = (ArrayList<Machine>) request.getAttribute("machines");
     int numPage = 1;
-    int numReg = 10;
+    int numReg = 10; 
 
     if (machines == null) {
         machines = new ArrayList<>();

@@ -22,7 +22,7 @@ public class MachineDAL { // Clase para poder realizar consulta de Insertar, mod
         if (pMachine.getTopAux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.SQLSERVER) {
             sql += "TOP " + pMachine.getTopAux() + " ";
         }
-        sql += (obtenerCampos() + " FROM Machines m");
+        sql += (obtenerCampos() + " FROM Machine m");
         return sql;
     }
 
@@ -45,8 +45,8 @@ public class MachineDAL { // Clase para poder realizar consulta de Insertar, mod
                 ps.setInt(1, pMachine.getIdMachines());
                 ps.setString(2, pMachine.getMachinesName());
                 ps.setString(3, pMachine.getBrand());
-                ps.setInt(4, pMachine.getSerialNumber());
-                ps.setByte(5, pMachine.getEstatus());
+                ps.setString(4, pMachine.getSerialNumber());
+                ps.setByte(5, pMachine.getStatus());
                 ps.setDate(6, java.sql.Date.valueOf(pMachine.getAcquisitionDate()));
                 ps.setDate(7, java.sql.Date.valueOf(pMachine.getMaintenanceDate()));
                 ps.setDate(8, java.sql.Date.valueOf(pMachine.getNextMaintenanceDate()));
@@ -73,8 +73,8 @@ public class MachineDAL { // Clase para poder realizar consulta de Insertar, mod
                 ps.setInt(1, pMachine.getIdMachines());
                 ps.setString(2, pMachine.getMachinesName());
                 ps.setString(3, pMachine.getBrand());
-                ps.setInt(4, pMachine.getSerialNumber());
-                ps.setByte(5, pMachine.getEstatus());
+                ps.setString(4, pMachine.getSerialNumber());
+                ps.setByte(5, pMachine.getStatus());
                 ps.setDate(6, java.sql.Date.valueOf(pMachine.getMaintenanceDate()));
                 ps.setDate(7, java.sql.Date.valueOf(pMachine.getNextMaintenanceDate()));
                 ps.setInt(8, pMachine.getIdMachines());
@@ -121,9 +121,9 @@ public class MachineDAL { // Clase para poder realizar consulta de Insertar, mod
         pIndex++;
         pMachine.setBrand(pResultSet.getString(pIndex));
         pIndex++;
-        pMachine.setSerialNumber(pResultSet.getInt(pIndex));
+        pMachine.setSerialNumber(pResultSet.getString(pIndex));
         pIndex++;
-        pMachine.setEstatus(pResultSet.getByte(pIndex));
+        pMachine.setStatus(pResultSet.getByte(pIndex));
         pIndex++;
         pMachine.setAcquisitionDate(pResultSet.getString(pIndex));
         pMachine.setMaintenanceDate(pResultSet.getString(pIndex));
@@ -256,19 +256,19 @@ public class MachineDAL { // Clase para poder realizar consulta de Insertar, mod
             }
         }
         // Verificar si se va incluir el campo Serial_Number en el filtro de la consulta SELECT de la tabla de Machines
-        if (pMachine.getSerialNumber() > 0) {
+        if (pMachine.getSerialNumber() != null && pMachine.getSerialNumber().trim().isEmpty() == false) {
             pUtilQuery.AgregarWhereAnd(" m.Serial_Number=? "); // agregar el campo Serial_Number al filtro de la consulta SELECT y agregar en el WHERE o AND
             if (statement != null) {
                 // agregar el parametro del campo Serial_Number a la consulta SELECT de la tabla de Machines
-                statement.setInt(pUtilQuery.getNumWhere(), pMachine.getSerialNumber());
+                statement.setString(pUtilQuery.getNumWhere(), pMachine.getSerialNumber());
             }
         }
         // Verificar si se va incluir el campo Estatus en el filtro de la consulta SELECT de la tabla de Machines
-        if (pMachine.getEstatus() > 0) {
+        if (pMachine.getStatus() > 0) {
             pUtilQuery.AgregarWhereAnd(" m.Estatus=? "); // agregar el campo Estatus al filtro de la consulta SELECT y agregar en el WHERE o AND
             if (statement != null) {
                 // agregar el parametro del campo Estatus a la consulta SELECT de la tabla de Machines
-                statement.setInt(pUtilQuery.getNumWhere(), pMachine.getEstatus());
+                statement.setInt(pUtilQuery.getNumWhere(), pMachine.getStatus());
             }
         }
         // Verificar si se va incluir el campo Acquisition_Date en el filtro de la consulta SELECT de la tabla de Machines
