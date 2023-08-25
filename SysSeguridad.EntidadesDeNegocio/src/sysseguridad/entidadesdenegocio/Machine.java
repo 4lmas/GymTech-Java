@@ -1,5 +1,7 @@
 package sysseguridad.entidadesdenegocio;
+
 public class Machine {
+
     private int Id_Machines;
     private int IdUsuario;
     private String Machines_Name;
@@ -12,11 +14,11 @@ public class Machine {
     private int Top_Aux;
     private Usuario usuario;
 
-    public Machine(int id_Machines,/* int idUsuario,*/ String machines_Name, String brand, String serial_Number,
-                   String acquisition_Date, String maintenance_Date, String next_Maintenance_Date,
-                   byte Status, int top_Aux) {
+    public Machine(int id_Machines, int idUsuario, String machines_Name, String brand, String serial_Number,
+            String acquisition_Date, String maintenance_Date, String next_Maintenance_Date,
+            byte Status, int top_Aux) {
         this.Id_Machines = id_Machines;
-       // IdUsuario = idUsuario;
+        this.IdUsuario = idUsuario;
         this.Machines_Name = machines_Name;
         this.Brand = brand;
         this.Serial_Number = serial_Number;
@@ -26,9 +28,9 @@ public class Machine {
         this.Status = Status;
         this.Top_Aux = top_Aux;
     }
-    
-    public Machine(){
-        
+
+    public Machine() {
+
     }
 
     public int getIdMachines() {
@@ -38,21 +40,17 @@ public class Machine {
     public void setIdMachines(int id_Machines) {
         Id_Machines = id_Machines;
     }
+
+    public void setIdUsuario(int IdUsuario){
+        this.IdUsuario =IdUsuario;
+    }
     public int getIdUsuario() {
         return IdUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        IdUsuario = idUsuario;
-    }
-    
-    public Usuario getUsuario(){
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario){
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
 
     public String getMachinesName() {
         return Machines_Name;
@@ -116,5 +114,18 @@ public class Machine {
 
     public void setTopAux(int top_Aux) {
         Top_Aux = top_Aux;
+    }
+    
+    public Usuario getUsuario(){
+        return usuario;
+    }
+    public void set(Usuario usuario){
+        this.usuario = usuario;
+    }
+
+    public class statusMachine {
+
+        public static final byte ACTIVO = 1;
+        public static final byte INACTIVO = 2;
     }
 }
